@@ -1,8 +1,26 @@
 import { Injectable } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import * as shortid from 'shortid';
+import { UrlMapper } from 'src/entities/url-mapper.entity';
+import { Repository } from 'typeorm';
+
 
 @Injectable()
 export class ShortenService {
-    async shortenUrl(longformUrl: string){
+    constructor(
+        @InjectRepository(UrlMapper)
+        private readonly urlMapperRepository: Repository<UrlMapper>
+    ){}
 
+    async shortenUrl(longformUrl: string) : Promise<string> {
+        const shortCode = shortid.generate();
+
+        const urlMapper = this.urlMapperRepository.create({
+            shortCode,
+            originalURL: longformUrl,
+        });
+
+        await this.urlMapperRepository.save(urlMapper);
+        return `https://tir.com/${shortCode}`;
     }
 }

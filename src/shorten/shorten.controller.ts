@@ -8,7 +8,7 @@ export class ShortenController {
     ){}
 
     @Post('shorten')
-    async shortenURL(@Body() body: string){
+    async shortenURL(@Body() body: string) {
         const shortenedUrl = await this.shortenService.shortenUrl(body);
         return {shortenedUrl};
     }
