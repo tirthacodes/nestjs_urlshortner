@@ -1,5 +1,6 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { ShortenService } from './shorten.service';
+import { ShortenUrlDto } from './ShortenUrl.dto';
 
 @Controller('url')
 export class ShortenController {
@@ -8,7 +9,7 @@ export class ShortenController {
     ){}
 
     @Post('shorten')
-    async shortenURL(@Body() body: string) {
+    async shortenURL(@Body() body: ShortenUrlDto) {
         const shortenedUrl = await this.shortenService.shortenUrl(body);
         return {shortenedUrl};
     }
