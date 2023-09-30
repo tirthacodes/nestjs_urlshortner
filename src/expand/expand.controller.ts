@@ -12,6 +12,6 @@ export class ExpandController {
     async ExpandURL(@Param('shortcode') details: string){
         const originalURL = await this.expandService.expandUrl(details);
 
-        return {originalURL};
+        return originalURL;
     }
 }
