@@ -1,3 +1,3 @@
-export class ExpandUrlDto{
+export class ExpandUrlDto {
     shortCode: string;
 }

@@ -9,12 +9,8 @@ export class ExpandController {
     ){}
 
     @Get(':shortcode')
-    async ExpandURL(@Param('shortcode') params: ExpandUrlDto){
-        const originalURL = await this.expandService.expandUrl(params);
-
-        if(!originalURL){
-            throw new BadRequestException('Invalid Shortcode!');
-        }
+    async ExpandURL(@Param('shortcode') details: string){
+        const originalURL = await this.expandService.expandUrl(details);
 
         return {originalURL};
     }

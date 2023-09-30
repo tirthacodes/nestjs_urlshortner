@@ -1,3 +1,3 @@
-export type expandUrlParams= {
+export type ExpandUrlParams= {
     shortCode: string;
 }
