@@ -11,4 +11,4 @@ import { UrlMapper } from 'src/entities/url-mapper.entity';
   controllers: [ExpandController],
   providers: [ExpandService]
 })
-export class ExpnadModule {}
+export class ExpandModule {}

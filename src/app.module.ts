@@ -2,7 +2,7 @@ import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { ShortenModule } from './shorten/shorten.module';
-import { ExpnadModule } from './expand/expand.module';
+import { ExpandModule } from './expand/expand.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { UrlMapper } from './entities/url-mapper.entity';
 
@@ -18,7 +18,7 @@ import { UrlMapper } from './entities/url-mapper.entity';
       entities: [UrlMapper],
       synchronize: true,
     }),
-    ShortenModule, ExpnadModule],
+    ShortenModule, ExpandModule],
   controllers: [AppController],
   providers: [AppService],
 })
